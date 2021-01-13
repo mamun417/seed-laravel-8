@@ -22,7 +22,7 @@ class BrandFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->name;
+        $name = $this->faker->unique()->name;
 
         return [
             'name' => $name,
@@ -30,8 +30,6 @@ class BrandFactory extends Factory
             'web_url' => $this->faker->url,
             'description' => $this->faker->text,
             'status' => $this->faker->boolean,
-            'created_by' => 1,
-            'updated_by' => 1,
         ];
     }
 }
