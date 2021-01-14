@@ -22,12 +22,9 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->name;
-
         return [
             'parent_id' => 0,
-            'name' => $name,
-            'slug' => Str::slug($name),
+            'name' => $this->faker->unique()->name,
             'description' => $this->faker->text,
             'status' => $this->faker->boolean
         ];

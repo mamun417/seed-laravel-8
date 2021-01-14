@@ -25,4 +25,26 @@ class ImageFactory extends Factory
             'path' => $this->faker->imageUrl(200, 100)
         ];
     }
+
+    public function lg(): ImageFactory
+    {
+        $dimension = Image::IMAGE_DIMENSIONS['lg'];
+
+        return $this->state(function (array $attributes) use ($dimension) {
+            return [
+                'path' => $this->faker->imageUrl($dimension['w'], $dimension['h']),
+                'type' => 'lg',
+            ];
+        });
+    }
+
+    public function sm(): ImageFactory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'path' => $this->faker->imageUrl(23, 323),
+                'type' => 'sm',
+            ];
+        });
+    }
 }

@@ -22,11 +22,8 @@ class SliderFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->unique()->title;
-
         return [
-            'title' => $title,
-            'slug' => Str::slug($title),
+            'title' => $this->faker->unique()->name,
             'status' => $this->faker->boolean
         ];
     }

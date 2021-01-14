@@ -2,20 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brand;
+use App\Models\Tax;
+use Database\Factories\TaxFactory;
 use Illuminate\Database\Seeder;
 
-class BrandSeeder extends Seeder
+class TaxSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
-     * @throws \Exception
      */
     public function run()
     {
-        $images = random_int(2, 5);
-        Brand::factory()->hasImages($images)->count(100)->create();
+        Tax::factory()->count(5)->create();
     }
 }

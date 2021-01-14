@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Brand;
+use App\Models\ShippingMethod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class BrandFactory extends Factory
+class ShippingMethodFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Brand::class;
+    protected $model = ShippingMethod::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class BrandFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->name,
-            'web_url' => $this->faker->url,
-            'description' => $this->faker->text,
-            'status' => $this->faker->boolean,
+            'title' => $this->faker->unique()->name,
+            'applicable_amount' => rand(100, 400),
+            'charge' => rand(100, 400),
+            'status' => $this->faker->boolean
         ];
     }
 }

@@ -22,7 +22,7 @@ class Base extends Model
             $item->updated_by = Auth::id() ?? 1;
         });
 
-        self::updating(function (Brand $item) {
+        self::updating(function ($item) {
             $item->slug = slug($item->name);
             $item->updated_by = Auth::id();
         });

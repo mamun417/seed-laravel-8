@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Brand;
+use App\Models\Social;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class BrandFactory extends Factory
+class SocialFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Brand::class;
+    protected $model = Social::class;
 
     /**
      * Define the model's default state.
@@ -24,9 +23,9 @@ class BrandFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name,
-            'web_url' => $this->faker->url,
-            'description' => $this->faker->text,
-            'status' => $this->faker->boolean,
+            'icon' => $this->faker->name,
+            'link' => $this->faker->url,
+            'status' => $this->faker->boolean
         ];
     }
 }
