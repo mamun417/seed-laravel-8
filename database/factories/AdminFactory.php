@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
+use App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class CategoryFactory extends Factory
+class AdminFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Category::class;
+    protected $model = Admin::class;
 
     /**
      * Define the model's default state.
@@ -22,14 +22,12 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->name;
-
         return [
-            'parent_id' => 0,
-            'name' => $name,
-            'slug' => Str::slug($name),
-            'description' => $this->faker->text,
-            'status' => $this->faker->boolean
+            'name' => $this->faker->name,
+            'email' => 'admin@test.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
         ];
     }
 }

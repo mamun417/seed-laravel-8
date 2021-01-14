@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\Image;
+use App\Models\Slider;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class SliderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +17,9 @@ class CategorySeeder extends Seeder
     {
         $images = random_int(2, 5);
 
-        Category::factory()
+        Slider::factory()
             ->hasImages($images)
-            ->count(100)->create();
+            ->count(3)
+            ->create();
     }
 }

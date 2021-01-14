@@ -14,6 +14,11 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
-        Brand::factory()->count(100)->create();
+        $images = random_int(2, 5);
+
+        Brand::factory()
+            ->hasImages($images)
+            ->count(100)
+            ->create();
     }
 }

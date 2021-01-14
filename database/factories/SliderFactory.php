@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
+use App\Models\Slider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class CategoryFactory extends Factory
+class SliderFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Category::class;
+    protected $model = Slider::class;
 
     /**
      * Define the model's default state.
@@ -22,13 +22,11 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->name;
+        $title = $this->faker->unique()->title;
 
         return [
-            'parent_id' => 0,
-            'name' => $name,
-            'slug' => Str::slug($name),
-            'description' => $this->faker->text,
+            'title' => $title,
+            'slug' => Str::slug($title),
             'status' => $this->faker->boolean
         ];
     }
