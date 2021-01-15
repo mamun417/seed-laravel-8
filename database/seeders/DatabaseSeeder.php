@@ -14,16 +14,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(10)->create();
-
         $this->call([
+            ShippingMethodSeeder::class,
+            SocialSeeder::class,
+            TaxSeeder::class,
+            SettingSeeder::class,
             AdminSeeder::class,
             BrandSeeder::class,
             SliderSeeder::class,
             CategorySeeder::class,
-            ShippingMethodSeeder::class,
-            SocialSeeder::class,
-            TaxSeeder::class,
+            UserSedder::class,
         ]);
     }
 }

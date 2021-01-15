@@ -47,4 +47,24 @@ class ImageFactory extends Factory
             ];
         });
     }
+
+    /*public function footerLogo(): ImageFactory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'path' => $this->faker->imageUrl(200, 400),
+                'type' => 'footer_logo',
+            ];
+        });
+    }
+
+    public function headerLogo(): ImageFactory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'path' => $this->faker->imageUrl(250, 400),
+                'type' => 'header_logo',
+            ];
+        });
+    }*/
 }
