@@ -16,6 +16,8 @@ class UserSedder extends Seeder
      */
     public function run()
     {
+        print_r("User seeding\n");
+
         User::factory()
             ->count(10)
             ->hasShippingAddress(1)

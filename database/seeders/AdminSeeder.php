@@ -14,6 +14,7 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        print_r("Admin seeding\n");
         Admin::factory()->create();
     }
 }

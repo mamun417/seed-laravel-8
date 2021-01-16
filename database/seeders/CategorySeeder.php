@@ -17,6 +17,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        print_r("Category seeding\n");
+
         Category::factory()
             ->count(100)
             ->has(Image::factory()->lg())

@@ -16,6 +16,8 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        print_r("Setting seeding\n");
+
         $faker = Factory::create();
 
         Setting::factory()

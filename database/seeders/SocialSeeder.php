@@ -14,6 +14,8 @@ class SocialSeeder extends Seeder
      */
     public function run()
     {
+        print_r("Social seeding\n");
+
         Social::factory()->count(5)->create();
     }
 }

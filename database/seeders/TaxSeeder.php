@@ -15,6 +15,8 @@ class TaxSeeder extends Seeder
      */
     public function run()
     {
+        print_r("Tax seeding\n");
+
         Tax::factory()->count(5)->create();
     }
 }

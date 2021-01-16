@@ -16,6 +16,8 @@ class SliderSeeder extends Seeder
      */
     public function run()
     {
+        print_r("Slider seeding\n");
+
         $images = random_int(2, 5);
         Slider::factory()->hasImages($images)->count(3)->create();
     }
