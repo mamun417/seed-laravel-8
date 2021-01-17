@@ -13,4 +13,9 @@ class Tax extends Base
     ];
 
     use HasFactory;
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }
