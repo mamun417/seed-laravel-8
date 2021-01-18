@@ -18,6 +18,6 @@ class BrandSeeder extends Seeder
         print_r("Brand seeding\n");
 
         $images = random_int(2, 5);
-        Brand::factory()->hasImages($images)->count(100)->create();
+        Brand::factory()->hasImages($images)->count(40)->create();
     }
 }

@@ -33,7 +33,7 @@ class ProductFactory extends Factory
                 if (Category::count()) {
                     return Category::all()->random(1)->first()->id;
                 } else {
-                    return Category::factory()->create()->id;
+                    return Category::factory()->create(['status' => 1])->id;
                 }
             },
 
@@ -41,7 +41,7 @@ class ProductFactory extends Factory
                 if (Brand::count()) {
                     return Brand::all()->random(1)->first()->id;
                 } else {
-                    return Brand::factory()->create()->id;
+                    return Brand::factory()->create(['status' => 1])->id;
                 }
             },
 
@@ -49,20 +49,36 @@ class ProductFactory extends Factory
                 if (Tax::count()) {
                     return Tax::active()->get()->random(1)->first()->id;
                 } else {
-                    return Tax::factory()->create()->id;
+                    return Tax::factory()->create(['status' => 1])->id;
                 }
             },
 
             'name' => $this->faker->unique()->name,
-            'price' => $this->faker->randomFloat(2, 20, 500),
+
+            'price' => function(array $attributes) {
+                return $this->faker->boolean ? $this->faker->randomFloat(2, 20, 1000) : Null;
+            },
 
             'discount_price' => function (array $attributes) {
-                return $this->faker->boolean ? $attributes['price'] - 15 : Null;
+                return (isset($attributes['price']) && $this->faker->boolean)
+                    ? $attributes['price'] - random_int(5, 15)
+                    : Null;
             },
 
             'stock' => random_int(10, 100),
             'code' => $this->faker->streetSuffix,
-            'color' => 'red',
+
+            'color' => function () {
+                $colors = [
+                    'red', 'black', 'blue', 'green', 'orange', 'pink',
+                    'white', 'yellow', 'bronze', 'silver', 'gray'
+                ];
+
+                $colors = $this->faker->randomElements($colors, random_int(1, 3));
+
+                return json_encode($colors);
+            },
+
             'details' => $this->faker->text,
             'weight' => random_int(1, 50),
             'status' => $this->faker->boolean,

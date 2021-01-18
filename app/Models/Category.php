@@ -14,4 +14,9 @@ class Category extends Base
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }
