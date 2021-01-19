@@ -21,7 +21,7 @@ class CouponFactory extends Factory
      * @return array
      * @throws \Exception
      */
-    public function definition()
+    public function definition(): array
     {
         $faker = $this->faker;
 
@@ -29,9 +29,9 @@ class CouponFactory extends Factory
             'code' => $faker->unique()->firstName,
             'apply_type' => random_int(1, 2),
             'value' => random_int(10, 90),
-            'usable_quantity' => random_int(1, 15),
+            'usable_quantity' => random_int(5, 15),
             'count' => function (array $attributes) {
-                return $attributes['usable_quantity'] - 1;
+                return $attributes['usable_quantity'] - random_int(1, 5);
             },
             'started_at' => Carbon::now()->addDays(random_int(1, 15)),
             'expired_at' => function (array $attributes) {

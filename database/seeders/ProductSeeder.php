@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductPrice;
+use Exception;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -14,7 +15,7 @@ class ProductSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
-     * @throws \Exception
+     * @throws Exception
      */
     public function run()
     {
@@ -23,7 +24,6 @@ class ProductSeeder extends Seeder
             ->create()
             ->each(function (Product $product) {
                 if (!$product->price) {
-
                     $product_prices = ProductPrice::factory()
                         ->count(random_int(1, 3))
                         ->make();
