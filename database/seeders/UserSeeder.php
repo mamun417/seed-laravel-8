@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Order;
+use App\Models\OrderDetails;
 use App\Models\ShippingAddress;
 use App\Models\User;
 use Faker\Factory;
@@ -23,7 +24,14 @@ class UserSeeder extends Seeder
         User::factory()
             ->count(50)
             ->hasShippingAddress(1)
-            ->has(Order::factory()->count(random_int(1, 20)))
+            ->has(
+                Order::factory()
+                    ->has(
+                        OrderDetails::factory()
+                            ->count(random_int(1, 3))
+                    )
+                    ->count(random_int(1, 3))
+            )
             ->create();
     }
 }

@@ -21,4 +21,9 @@ class Order extends Model
         0 => 'unpaid',
         1 => 'paid',
     ];
+
+    public function orderDetails(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(OrderDetails::class);
+    }
 }
